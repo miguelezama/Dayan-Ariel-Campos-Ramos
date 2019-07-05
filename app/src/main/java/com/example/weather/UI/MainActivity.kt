@@ -1,22 +1,19 @@
-package com.example.weather
+package com.example.weather.UI
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.content.res.ResourcesCompat
-import android.util.Log
 import com.android.volley.Request
 import com.example.weather.API.API_KEY
 import com.example.weather.API.DARK_SKY_URL
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.math.log
-import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.example.weather.API.JSONParser
 import com.example.weather.Models.CurrentWeather
+import com.example.weather.R
 import org.json.JSONObject
 
 
