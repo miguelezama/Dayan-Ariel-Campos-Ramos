@@ -73,6 +73,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/dailyweatherButton"
             style="@style/Widget.AppCompat.Button.Borderless" app:layout_constraintEnd_toStartOf="@+id/guideline"
+            android:onClick="startDailyActivity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" android:textStyle="bold" android:textAllCaps="true"
             android:textAlignment="center"/>
@@ -82,6 +83,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/hourlyWheatherButton"
             style="@style/Widget.AppCompat.Button.Borderless" app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="startHourlyActivity"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintBottom_toBottomOf="parent" android:textStyle="bold" android:textAllCaps="true"/>
 </android.support.constraint.ConstraintLayout>
