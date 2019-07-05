@@ -61,7 +61,11 @@ class MainActivity : AppCompatActivity() {
             }, Response.ErrorListener {
                 //para los errores que pueden ocurrir
 
-                val snackbar = Snackbar.make(main,"Error de Red", Snackbar.LENGTH_INDEFINITE)
+                val snackbar = Snackbar.make(main,"NETWORK ERROR", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("RETRY", {
+                        getWeather()
+                    })
+
                 snackbar.show()
             })
 
