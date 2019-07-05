@@ -2,6 +2,7 @@ package com.example.weather
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.res.ResourcesCompat
 import android.util.Log
 import com.android.volley.Request
 import com.example.weather.API.API_KEY
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val latitud = 37.8267
         val longitud = -122.4233
 
-        val url = "$DARK_SKY_URL/$API_KEY/$latitud,$longitud"
+        val url = "$DARK_SKY_URL/$API_KEY/$latitud,$longitud?lang=es&units=si"
 
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
@@ -59,12 +60,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun buildCurrentWeatherUI(currentWeather: CurrentWeather) {
 
-        tempTextView.text = currentWeather.temp.toString()
+        tempTextView.text = "${currentWeather.temp.toString()} C"
 
-        precipTextView.text = currentWeather.precip.toString()
+        precipTextView.text = "${currentWeather.precip.toString()} %"
 
         descriptionTextView.text = currentWeather.summary
 
+        iconimageView.setImageDrawable(ResourcesCompat.getDrawable(resources, currentWeather.getIconResource(),null))
 
 
     }
