@@ -11,5 +11,7 @@
     <string name="weather_icon">weather icon</string>
     <string name="language">en</string>
     <string name="units">si</string>
+    <string name="network_error">NETWORK ERROR</string>
+    <string name="retry">RETRY?R</string>
 
 </resources>

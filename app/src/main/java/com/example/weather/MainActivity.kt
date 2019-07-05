@@ -73,8 +73,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayErrorMessage() {
-        val snackbar = Snackbar.make(main, "NETWORK ERROR", Snackbar.LENGTH_INDEFINITE)
-            .setAction("RETRY", {
+        val snackbar = Snackbar.make(main, getString(R.string.network_error), Snackbar.LENGTH_INDEFINITE)
+            .setAction(getString(R.string.retry), {
                 getWeather()
             })
 
