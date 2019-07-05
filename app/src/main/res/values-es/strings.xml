@@ -14,5 +14,10 @@
     <string name="units">si</string>
     <string name="network_error">ERROR RED</string>
     <string name="retry">¿REINTENTAR?</string>
+    <string name="daily_weather">Daily Weather</string>
+    <string name="summary_of_the_week">Summary of the week</string>
+    <string name="mondey">mondey</string>
+    <string name="min">Min: 24 C</string>
+    <string name="max">Max: 32 C</string>
 
 </resources>
