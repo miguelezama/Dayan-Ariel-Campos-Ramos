@@ -2,6 +2,7 @@ package com.example.weather
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.content.res.ResourcesCompat
 import android.util.Log
 import com.android.volley.Request
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        getWeather()
+    }
+
+    private fun getWeather() {
         val latitud = 37.8267
         val longitud = -122.4233
         val language = getString(R.string.language)
@@ -54,7 +59,11 @@ class MainActivity : AppCompatActivity() {
                 buildCurrentWeatherUI(currentWeather)
 
             }, Response.ErrorListener {
-       Log.d(TAG,"That didn't work!")})
+                //para los errores que pueden ocurrir
+
+                val snackbar = Snackbar.make(main,"Error de Red", Snackbar.LENGTH_INDEFINITE)
+                snackbar.show()
+            })
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
