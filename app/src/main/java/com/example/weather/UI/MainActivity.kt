@@ -1,5 +1,6 @@
 package com.example.weather.UI
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -97,13 +98,16 @@ class MainActivity : AppCompatActivity() {
 
     fun startHourlyActivity(view: View){
 
-        
-
+        val intent = Intent()
+        intent.setClass(this,HourlyWeatherActivity::class.java)
+        startActivity(intent)
 
     }
 
-    fun startDailyActivity(view: View){}
+    fun startDailyActivity(view: View) {
 
-
-
+        val intent = Intent()
+        intent.setClass(this, DailyWeatherActivity::class.java)
+        startActivity(intent)
+    }
 }
