@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        tempTextView.text = getString(R.string.temp_placeholder,0)
+
+        precipTextView.text = getString(R.string.precip_placeholder, 0)
+
         getWeather()
     }
 
@@ -61,16 +65,20 @@ class MainActivity : AppCompatActivity() {
             }, Response.ErrorListener {
                 //para los errores que pueden ocurrir
 
-                val snackbar = Snackbar.make(main,"NETWORK ERROR", Snackbar.LENGTH_INDEFINITE)
-                    .setAction("RETRY", {
-                        getWeather()
-                    })
-
-                snackbar.show()
+                displayErrorMessage()
             })
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
+    }
+
+    private fun displayErrorMessage() {
+        val snackbar = Snackbar.make(main, "NETWORK ERROR", Snackbar.LENGTH_INDEFINITE)
+            .setAction("RETRY", {
+                getWeather()
+            })
+
+        snackbar.show()
     }
 
     private fun buildCurrentWeatherUI(currentWeather: CurrentWeather) {
