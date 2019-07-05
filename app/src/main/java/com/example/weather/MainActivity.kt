@@ -30,8 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         val latitud = 37.8267
         val longitud = -122.4233
+        val language = getString(R.string.language)
+        val units = getString(R.string.units)
 
-        val url = "$DARK_SKY_URL/$API_KEY/$latitud,$longitud?lang=es&units=si"
+        val url = "$DARK_SKY_URL/$API_KEY/$latitud,$longitud?lang=$language&units=$units"
 
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
@@ -40,14 +42,14 @@ class MainActivity : AppCompatActivity() {
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             Response.Listener<String> { response ->
-                // 1 obtener nuestro clima actual con la clase JSONParse
+                //obtener nuestro clima actual con la clase JSONParse
 
 
                 val responseJSON = JSONObject(response)
 
                 val currentWeather = jsonParser.getCurrentWeatherFromJson(responseJSON)
 
-                // 2 asignar los valores a las view adecuadas
+                //asignar los valores a las view adecuadas
 
                 buildCurrentWeatherUI(currentWeather)
 
@@ -60,9 +62,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun buildCurrentWeatherUI(currentWeather: CurrentWeather) {
 
-        tempTextView.text = "${currentWeather.temp.toString()} C"
+        val precipProbability = (currentWeather.precip * 100).toInt()
 
-        precipTextView.text = "${currentWeather.precip.toString()} %"
+        tempTextView.text = getString(R.string.temp_placeholder,currentWeather.temp.toInt() )
+
+        precipTextView.text = getString(R.string.precip_placeholder, precipProbability)
 
         descriptionTextView.text = currentWeather.summary
 

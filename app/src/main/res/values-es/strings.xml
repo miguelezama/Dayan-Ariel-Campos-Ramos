@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">weather</string>
-    <string name="no_data">No Data</string>
+    <string name="no_data">No Info</string>
     <string name="localization">Leon, Nicaragua</string>
     <string name="temp_placeholder">%d C</string>
     <string name="precip_placeholder">%d %%</string>
@@ -9,7 +10,7 @@
     <string name="hourly_button_text">HOURLY WHEATHER</string>
     <string name="temp">TEMP</string>
     <string name="weather_icon">weather icon</string>
-    <string name="language">en</string>
+    <string name="language">es</string>
     <string name="units">si</string>
 
 </resources>
