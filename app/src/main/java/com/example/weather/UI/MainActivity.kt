@@ -16,6 +16,7 @@ import com.android.volley.toolbox.Volley
 import com.android.volley.Response
 import com.example.weather.API.JSONParser
 import com.example.weather.Models.CurrentWeather
+import com.example.weather.Models.Day
 import com.example.weather.R
 import org.json.JSONObject
 
@@ -24,6 +25,11 @@ class MainActivity : AppCompatActivity() {
 
     val TAG = MainActivity::class.java.simpleName
     val jsonParser = JSONParser()
+    lateinit var days:ArrayList<Day>
+
+    companion object{
+        val DAYLY_WEATHER = "DAILY_WEATHER"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +63,8 @@ class MainActivity : AppCompatActivity() {
                 val responseJSON = JSONObject(response)
 
                 val currentWeather = jsonParser.getCurrentWeatherFromJson(responseJSON)
+
+                days = jsonParser.getDailyWeather(responseJSON)
 
                 //asignar los valores a las view adecuadas
 
@@ -106,8 +114,10 @@ class MainActivity : AppCompatActivity() {
 
     fun startDailyActivity(view: View) {
 
-        val intent = Intent()
-        intent.setClass(this, DailyWeatherActivity::class.java)
+        val intent = Intent(this, DailyWeatherActivity::class.java).apply {
+            putParcelableArrayListExtra(DAYLY_WEATHER,days)
+        }
+
         startActivity(intent)
     }
 }

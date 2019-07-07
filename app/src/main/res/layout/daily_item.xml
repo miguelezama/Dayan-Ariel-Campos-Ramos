@@ -3,23 +3,26 @@
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/colorPrimary"
               android:padding="16dp"
+              tools:background="@color/colorPrimary"
               xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
             style="@style/ListItem"
-            android:text="@string/mondey"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/dayTextView" android:textAlignment="viewStart"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/dayTextView"
+            android:textAlignment="viewStart" tools:text="Monday"/>
     <TextView
             style="@style/ListItem"
-            android:text="@string/min"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/minTextView" android:textAlignment="center"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/minTextView"
+            android:textAlignment="center" tools:text="Min: 24 C"/>
     <TextView
             style="@style/ListItem"
-            android:text="@string/max"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/maxTextView" android:textAlignment="center"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/maxTextView"
+            android:textAlignment="center" tools:text="Max: 32 C"/>
 </LinearLayout>
