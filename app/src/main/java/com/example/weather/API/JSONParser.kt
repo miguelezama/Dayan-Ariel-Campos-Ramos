@@ -4,6 +4,7 @@ import com.example.weather.Models.CurrentWeather
 import com.example.weather.Models.Day
 import org.json.JSONObject
 import com.example.weather.Extension.iterator
+import com.example.weather.Models.Hour
 
 //funciones de alto nivel
 
@@ -50,3 +51,25 @@ fun getDailyWeatherFromJson(response: JSONObject):ArrayList<Day>{
 }
 
 
+
+fun getHourlyWeatherFromJson(response: JSONObject):ArrayList<Hour>{
+
+    val hourlyJSON = response.getJSONObject("hourly") //crear estas constantes
+
+    val hourlyJSONArray = hourlyJSON.getJSONArray("data")
+
+    val hours = ArrayList<Hour>()
+
+    for (jsonHour in hourlyJSONArray){
+
+        val time: Long = jsonHour.getLong("time")
+
+        val temperature = jsonHour.getDouble("temperature")
+
+        val precipProb = jsonHour.getDouble("precipProbability")
+
+    }
+
+    return hours
+
+}
