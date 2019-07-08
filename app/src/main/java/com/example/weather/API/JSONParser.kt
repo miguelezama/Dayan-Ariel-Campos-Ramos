@@ -29,6 +29,8 @@ fun getDailyWeatherFromJson(response: JSONObject):ArrayList<Day>{
 
     val dailyJSON = response.getJSONObject("daily") //crear estas constantes
 
+    val timeZone = response.getString("timezone")
+
     val dayJSONArray = dailyJSON.getJSONArray("data")
 
     val days = ArrayList<Day>()
@@ -42,7 +44,7 @@ fun getDailyWeatherFromJson(response: JSONObject):ArrayList<Day>{
         val time = jsonDay.getLong("time")
 
 
-        days.add(Day(time, minTemp, maxTemp))
+        days.add(Day(time, minTemp, maxTemp, timeZone))
 
     }
 
@@ -56,6 +58,8 @@ fun getHourlyWeatherFromJson(response: JSONObject):ArrayList<Hour>{
 
     val hourlyJSON = response.getJSONObject("hourly") //crear estas constantes
 
+    val timeZone = response.getString("timezone")
+
     val hourlyJSONArray = hourlyJSON.getJSONArray("data")
 
     val hours = ArrayList<Hour>()
@@ -68,7 +72,7 @@ fun getHourlyWeatherFromJson(response: JSONObject):ArrayList<Hour>{
 
         val precipProb = jsonHour.getDouble("precipProbability")
 
-        hours.add(Hour(time, temperature, precipProb))
+        hours.add(Hour(time, temperature, precipProb,timeZone))
 
     }
 

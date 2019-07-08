@@ -5,17 +5,19 @@ import android.os.Parcelable
 import java.text.SimpleDateFormat
 import java.util.*
 
-data class Day(val time:Long, val minTemp:Double, val maxTemp:Double): Parcelable {
+data class Day(val time:Long, val minTemp:Double, val maxTemp:Double, val timeZone: String): Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readLong(),
         parcel.readDouble(),
-        parcel.readDouble())
+        parcel.readDouble(),
+        parcel.readString())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeLong(time)
         parcel.writeDouble(minTemp)
         parcel.writeDouble(maxTemp)
+        parcel.writeString(timeZone)
     }
 
     override fun describeContents(): Int {
@@ -37,6 +39,8 @@ data class Day(val time:Long, val minTemp:Double, val maxTemp:Double): Parcelabl
     fun getFormattedTime():String {
 
         val formatter = SimpleDateFormat("EEEE", Locale.US)//nombre del dia
+
+        formatter.timeZone = TimeZone.getTimeZone("timezone")
 
         val date = Date(time * 1000)
 

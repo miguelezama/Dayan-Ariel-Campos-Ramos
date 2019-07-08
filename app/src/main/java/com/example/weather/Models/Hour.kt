@@ -5,12 +5,13 @@ import android.os.Parcelable
 import java.text.SimpleDateFormat
 import java.util.*
 
-data class Hour(val time: Long, val temp:Double, val precip:Double): Parcelable {
+data class Hour(val time: Long, val temp:Double, val precip:Double, val timeZone: String): Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readLong(),
         parcel.readDouble(),
-        parcel.readDouble()
+        parcel.readDouble(),
+        parcel.readString()
     )
 
 
@@ -19,6 +20,7 @@ data class Hour(val time: Long, val temp:Double, val precip:Double): Parcelable 
         parcel.writeLong(time)
         parcel.writeDouble(temp)
         parcel.writeDouble(precip)
+        parcel.writeString(timeZone)
     }
 
     override fun describeContents(): Int {
@@ -38,6 +40,8 @@ data class Hour(val time: Long, val temp:Double, val precip:Double): Parcelable 
     fun getFormattedTime():String{
 
         val formatter = SimpleDateFormat("h:mm a")
+
+        formatter.timeZone = TimeZone.getTimeZone(timeZone)
 
         val date = Date(time *100)
 
