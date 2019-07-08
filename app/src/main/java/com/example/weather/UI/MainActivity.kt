@@ -15,6 +15,8 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.android.volley.Response
 import com.example.weather.API.JSONParser
+import com.example.weather.Extension.action
+import com.example.weather.Extension.displaySnack
 import com.example.weather.Models.CurrentWeather
 import com.example.weather.Models.Day
 import com.example.weather.R
@@ -74,19 +76,21 @@ class MainActivity : AppCompatActivity() {
                 //para los errores que pueden ocurrir
 
                 displayErrorMessage()
+
+
             })
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
     }
 
-    private fun displayErrorMessage() {
-        val snackbar = Snackbar.make(main, getString(R.string.network_error), Snackbar.LENGTH_INDEFINITE)
-            .setAction(getString(R.string.retry), {
-                getWeather()
-            })
+    private fun displayErrorMessage() { //crear una snackbar para mostar mensaje de error de red
+        main.displaySnack(getString(R.string.network_error),Snackbar.LENGTH_INDEFINITE){
 
-        snackbar.show()
+            action(getString(R.string.retry)){
+                getWeather()
+            }
+        }
     }
 
     private fun buildCurrentWeatherUI(currentWeather: CurrentWeather) {

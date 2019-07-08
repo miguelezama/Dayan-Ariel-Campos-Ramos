@@ -25,6 +25,8 @@ class DailyWeatherActivity : AppCompatActivity() {
             dailyListView.adapter = baseAdapter // para mostrar el clima por dia
         }
 
+        dailyListView.emptyView = empyTextView // si no hay item lo despliega
+
 
     }
 }
