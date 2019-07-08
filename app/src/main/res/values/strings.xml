@@ -16,6 +16,8 @@
     <string name="daily_weather">Daily Weather</string>
     <string name="summary_of_the_week">Summary of the week</string>
     <string name="no_data" tools:ignore="DuplicateDefinition">No Data</string>
+    <string name="hourly_weather">Hourly Weather</string>
+    <string name="sumary_of_the_date">Sumary Of the Date</string>
 
 
 </resources>
