@@ -10,6 +10,6 @@ class HourlyWeatherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hourly_weather)
 
-        
+
     }
 }
