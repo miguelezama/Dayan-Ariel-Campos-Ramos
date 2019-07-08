@@ -5,7 +5,7 @@ import android.os.Parcelable
 import java.text.SimpleDateFormat
 import java.util.*
 
-class Hour(val time: Long, val temp:Double, val precip:Double): Parcelable {
+data class Hour(val time: Long, val temp:Double, val precip:Double): Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readLong(),

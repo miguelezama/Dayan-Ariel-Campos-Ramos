@@ -68,6 +68,8 @@ fun getHourlyWeatherFromJson(response: JSONObject):ArrayList<Hour>{
 
         val precipProb = jsonHour.getDouble("precipProbability")
 
+        hours.add(Hour(time, temperature, precipProb))
+
     }
 
     return hours
