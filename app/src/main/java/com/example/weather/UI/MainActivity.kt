@@ -16,6 +16,7 @@ import com.example.weather.Extension.action
 import com.example.weather.Extension.displaySnack
 import com.example.weather.Models.CurrentWeather
 import com.example.weather.Models.Day
+import com.example.weather.Models.Hour
 import com.example.weather.R
 import org.json.JSONObject
 
@@ -24,9 +25,11 @@ class MainActivity : AppCompatActivity() {
 
     val TAG = MainActivity::class.java.simpleName
     var days:ArrayList<Day> = ArrayList() // para que no se detenga la app
+    var hours:ArrayList<Hour> = ArrayList()
 
     companion object{
         val DAYLY_WEATHER = "DAILY_WEATHER"
+        val HOURlY_WEATHER = "HOURLY_WEATHER"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,6 +66,8 @@ class MainActivity : AppCompatActivity() {
                 val currentWeather = getCurrentWeatherFromJson(responseJSON)
 
                 days = getDailyWeatherFromJson(responseJSON)
+
+                hours = getHourlyWeatherFromJson(responseJSON)
 
                 //asignar los valores a las view adecuadas
 
@@ -106,8 +111,11 @@ class MainActivity : AppCompatActivity() {
 
     fun startHourlyActivity(view: View){
 
-        val intent = Intent()
-        intent.setClass(this,HourlyWeatherActivity::class.java)
+        val intent = Intent(this,HourlyWeatherActivity::class.java).apply{
+
+            putParcelableArrayListExtra(HOURlY_WEATHER, hours)
+        }
+
         startActivity(intent)
 
     }
