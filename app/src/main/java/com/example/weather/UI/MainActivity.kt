@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     val TAG = MainActivity::class.java.simpleName
     val jsonParser = JSONParser()
-    lateinit var days:ArrayList<Day>
+    var days:ArrayList<Day> = ArrayList() // para que no se detenga la app
 
     companion object{
         val DAYLY_WEATHER = "DAILY_WEATHER"
