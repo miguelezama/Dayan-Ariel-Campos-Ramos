@@ -5,7 +5,7 @@ import android.os.Parcelable
 import java.text.SimpleDateFormat
 import java.util.*
 
-class Day(val time:Long, val minTemp:Double, val maxTemp:Double): Parcelable {
+data class Day(val time:Long, val minTemp:Double, val maxTemp:Double): Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readLong(),
@@ -45,6 +45,8 @@ class Day(val time:Long, val minTemp:Double, val maxTemp:Double): Parcelable {
         return dayOfTheWeek
 
     }
+
+
 
 
 }

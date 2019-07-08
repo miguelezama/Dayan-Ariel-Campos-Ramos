@@ -2,7 +2,7 @@ package com.example.weather.Models
 
 import com.example.weather.R
 
-class CurrentWeather (var icon:String, var summary:String, var temp:Double, var precip:Double){
+data class CurrentWeather (var icon:String, var summary:String, var temp:Double, var precip:Double){
 
     fun getIconResource():Int{
 
