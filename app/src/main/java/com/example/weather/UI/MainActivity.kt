@@ -6,15 +6,12 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.content.res.ResourcesCompat
 import android.view.View
-import android.widget.Toast
 import com.android.volley.Request
-import com.example.weather.API.API_KEY
-import com.example.weather.API.DARK_SKY_URL
 import kotlinx.android.synthetic.main.activity_main.*
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.android.volley.Response
-import com.example.weather.API.JSONParser
+import com.example.weather.API.*
 import com.example.weather.Extension.action
 import com.example.weather.Extension.displaySnack
 import com.example.weather.Models.CurrentWeather
@@ -26,7 +23,6 @@ import org.json.JSONObject
 class MainActivity : AppCompatActivity() {
 
     val TAG = MainActivity::class.java.simpleName
-    val jsonParser = JSONParser()
     var days:ArrayList<Day> = ArrayList() // para que no se detenga la app
 
     companion object{
@@ -58,15 +54,15 @@ class MainActivity : AppCompatActivity() {
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(
             Request.Method.GET, url,
-            Response.Listener<String> { response ->
+            Response.Listener<String> {
                 //obtener nuestro clima actual con la clase JSONParse
 
 
-                val responseJSON = JSONObject(response)
+                val responseJSON = JSONObject(it)
 
-                val currentWeather = jsonParser.getCurrentWeatherFromJson(responseJSON)
+                val currentWeather = getCurrentWeatherFromJson(responseJSON)
 
-                days = jsonParser.getDailyWeather(responseJSON)
+                days = getDailyWeatherFromJson(responseJSON)
 
                 //asignar los valores a las view adecuadas
 
