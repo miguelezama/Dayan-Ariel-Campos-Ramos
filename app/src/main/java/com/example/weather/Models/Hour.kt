@@ -1,11 +1,12 @@
 package com.example.weather.Models
 
+import android.annotation.SuppressLint
 import android.os.Parcel
 import android.os.Parcelable
 import java.text.SimpleDateFormat
 import java.util.*
 
-data class Hour(val time: Long, val temp:Double, val precip:Double, val timeZone: String): Parcelable {
+data class Hour(val time: Long, val temp:Double, val precipProbability:Double, val timeZone: String): Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readLong(),
@@ -19,7 +20,7 @@ data class Hour(val time: Long, val temp:Double, val precip:Double, val timeZone
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeLong(time)
         parcel.writeDouble(temp)
-        parcel.writeDouble(precip)
+        parcel.writeDouble(precipProbability)
         parcel.writeString(timeZone)
     }
 
@@ -37,6 +38,7 @@ data class Hour(val time: Long, val temp:Double, val precip:Double, val timeZone
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun getFormattedTime():String{
 
         val formatter = SimpleDateFormat("h:mm a")

@@ -38,7 +38,7 @@ data class Day(val time:Long, val minTemp:Double, val maxTemp:Double, val timeZo
 
     fun getFormattedTime():String {
 
-        val formatter = SimpleDateFormat("EEEE", Locale.US)//nombre del dia
+        val formatter = SimpleDateFormat("EEEE", Locale.forLanguageTag("es-ES"))//nombre del dia
 
         formatter.timeZone = TimeZone.getTimeZone("timezone")
 

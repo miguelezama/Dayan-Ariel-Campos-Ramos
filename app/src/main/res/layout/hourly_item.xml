@@ -12,14 +12,14 @@
             android:id="@+id/hourTextView"
             android:layout_weight="1"
             tools:text="2:00 p.m."
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textAlignment="center"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/hourTempTextView"
             android:layout_weight="1"
-            android:textSize="24sp"
+            android:textSize="18sp"
             tools:text="24 C"
             android:textAlignment="center"/>
     <TextView
@@ -28,6 +28,6 @@
             android:id="@+id/hourPropTextView"
             android:layout_weight="1"
             tools:text="12 %"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textAlignment="center"/>
 </LinearLayout>

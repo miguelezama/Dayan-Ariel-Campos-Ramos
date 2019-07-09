@@ -1,5 +1,6 @@
 package com.example.weather.Adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.weather.R
 class DayAdapter(val context: Context, val datasource: ArrayList<Day>):BaseAdapter() {
     private val layoutInflater = LayoutInflater.from(context)
 
+    @SuppressLint("SetTextI18n")
     override fun getView(position: Int, convertView: View?, parentView: ViewGroup?): View {
 
 

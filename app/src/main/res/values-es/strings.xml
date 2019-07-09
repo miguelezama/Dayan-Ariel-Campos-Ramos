@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">weather</string>
-    <string name="no_data">No Info</string>
+    <string name="app_name">clima</string>
+    <string name="no_data">Sin información</string>
     <string name="localization">Leon, Nicaragua</string>
     <string name="temp_placeholder">%d C</string>
     <string name="precip_placeholder">%d %%</string>
-    <string name="precip">PRECIP</string>
-    <string name="daily_button_text">DAILY WEATHER</string>
-    <string name="hourly_button_text">HOURLY WHEATHER</string>
-    <string name="temp">TEMP</string>
-    <string name="weather_icon">weather icon</string>
+    <string name="precip">precipitación</string>
+    <string name="daily_button_text">CLIMA DE LA SEMANA</string>
+    <string name="hourly_button_text">CLIMA POR HORA</string>
+    <string name="temp">TEMPERATURA</string>
+    <string name="weather_icon">Icono Del Tiempo</string>
     <string name="language">es</string>
     <string name="units">si</string>
     <string name="network_error">ERROR RED</string>
     <string name="retry">¿REINTENTAR?</string>
-    <string name="daily_weather">Daily Weather</string>
-    <string name="summary_of_the_week">Summary of the week</string>
+    <string name="daily_weather">Clima Diario</string>
+    <string name="summary_of_the_week">Resumen De La Semana</string>
+    <string name="hourly_weather">Tiempo Por Hora</string>
+    <string name="sumary_of_the_date">Resumen del Dia</string>
 
 </resources>

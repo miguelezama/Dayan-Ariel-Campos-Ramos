@@ -44,8 +44,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getWeather() {
-        val latitud = 37.8267
-        val longitud = -122.4233
+
+        val latitud = 12.434
+        val longitud = -86.882
         val language = getString(R.string.language)
         val units = getString(R.string.units)
 
