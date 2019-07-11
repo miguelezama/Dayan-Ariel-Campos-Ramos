@@ -27,9 +27,9 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/localizationTextView" app:layout_constraintHorizontal_bias="0.498"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/iconimageView" android:textSize="18sp"
-            tools:text="10-7-2019 \n 11:47 p. m." android:textAlignment="center"/>
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/iconimageView" android:textSize="24sp"
+            tools:text="11:30 p. m." android:textAlignment="center"/>
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
                                           android:id="@+id/guideline"
                                           android:orientation="vertical"
@@ -95,6 +95,6 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/localizationTextView" android:text="@string/leon_nicaragua"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintVertical_bias="1.0"/>
+            app:layout_constraintHorizontal_bias="0.542"
+            app:layout_constraintVertical_bias="0.622" android:layout_marginBottom="8dp"/>
 </android.support.constraint.ConstraintLayout>

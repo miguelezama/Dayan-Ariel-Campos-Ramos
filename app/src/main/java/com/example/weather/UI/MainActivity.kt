@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SimpleDateFormat")
     private fun buildCurrentWeatherUI(currentWeather: CurrentWeather) {
 
-        val sdf = SimpleDateFormat("dd-MM-yyyy \n\n hh:mm a")
+        val sdf = SimpleDateFormat("hh:mm a")
         //val sdf = SimpleDateFormat("M")
         val date = Date(currentWeather.time * 1000)
 
