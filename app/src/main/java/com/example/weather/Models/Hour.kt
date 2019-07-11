@@ -45,7 +45,7 @@ data class Hour(val time: Long, val temp:Double, val precipProbability:Double, v
 
         formatter.timeZone = TimeZone.getTimeZone(timeZone)
 
-        val date = Date(time *100)
+        val date = Date(time *1000)
 
         val dayOfTheWeek = formatter.format(date)
 

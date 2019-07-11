@@ -17,8 +17,11 @@ import com.example.weather.Extension.displaySnack
 import com.example.weather.Models.CurrentWeather
 import com.example.weather.Models.Day
 import com.example.weather.Models.Hour
-import com.example.weather.R
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import android.annotation.SuppressLint
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,25 +37,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(com.example.weather.R.layout.activity_main)
 
-        tempTextView.text = getString(R.string.temp_placeholder,0)
+        tempTextView.text = getString(com.example.weather.R.string.temp_placeholder,0)
 
-        precipTextView.text = getString(R.string.precip_placeholder, 0)
+        precipTextView.text = this.getString(com.example.weather.R.string.precip_placeholder, 0)
 
         getWeather()
     }
 
     private fun getWeather() {
 
-
-
-
-
         val latitud = 12.434
         val longitud = -86.882
-        val language = getString(R.string.language)
-        val units = getString(R.string.units)
+        val language = getString(com.example.weather.R.string.language)
+        val units = getString(com.example.weather.R.string.units)
 
         val url = "$DARK_SKY_URL/$API_KEY/$latitud,$longitud?lang=$language&units=$units"
 
@@ -91,23 +90,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayErrorMessage() { //crear una snackbar para mostar mensaje de error de red
-        main.displaySnack(getString(R.string.network_error),Snackbar.LENGTH_INDEFINITE){
+        main.displaySnack(getString(com.example.weather.R.string.network_error),Snackbar.LENGTH_INDEFINITE){
 
-            action(getString(R.string.retry)){
+            action(getString(com.example.weather.R.string.retry)){
                 getWeather()
             }
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun buildCurrentWeatherUI(currentWeather: CurrentWeather) {
+
+        val sdf = SimpleDateFormat("dd-MM-yyyy \n\n hh:mm a")
+        //val sdf = SimpleDateFormat("M")
+        val date = Date(currentWeather.time * 1000)
+
+
 
         val precipProbability = (currentWeather.precip * 100).toInt()
 
-        tempTextView.text = getString(R.string.temp_placeholder,currentWeather.temp.toInt() )
+        tempTextView.text = getString(com.example.weather.R.string.temp_placeholder,currentWeather.temp.toInt() )
 
-        precipTextView.text = getString(R.string.precip_placeholder, precipProbability)
+        precipTextView.text = getString(com.example.weather.R.string.precip_placeholder, precipProbability)
 
         descriptionTextView.text = currentWeather.summary
+
+        localizationTextView.text = sdf.format(date)
 
         iconimageView.setImageDrawable(ResourcesCompat.getDrawable(resources, currentWeather.getIconResource(),null))
 

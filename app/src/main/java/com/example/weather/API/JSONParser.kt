@@ -14,7 +14,8 @@ fun getCurrentWeatherFromJson(response: JSONObject):CurrentWeather{
 
     with(currentJSON){
 
-        val currentWeather = CurrentWeather(icon = getString("icon"),
+        val currentWeather = CurrentWeather(time = getLong("time"),
+                                            icon = getString("icon"),
                                             summary = getString("summary"),
                                             temp = getDouble("temperature"),
                                             precip = getDouble("precipProbability"))
